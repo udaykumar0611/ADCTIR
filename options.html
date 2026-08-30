@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ADCTIR Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="settings">
+    <h1>ADCTIR Settings</h1>
+    <p>Choose whether scans use the local demonstration rules or the ADCTIR analysis server.</p>
+
+    <label class="toggle">
+      <input id="mockMode" type="checkbox" />
+      Use offline demonstration mode
+    </label>
+
+    <label for="apiBaseUrl">Analysis server address</label>
+    <input id="apiBaseUrl" type="url" placeholder="http://127.0.0.1:5001" />
+
+    <div class="actions">
+      <button id="saveBtn" type="button">Save settings</button>
+      <button id="clearBtn" class="secondary" type="button">Clear saved scan results</button>
+    </div>
+    <p id="status" role="status"></p>
+
+    <section>
+      <h2>Privacy</h2>
+      <p>ADCTIR checks only the active page after you select Analyze. It reads the URL, redirect count, HTTPS status, and whether a password field exists. It never reads passwords, field values, cookies, or browsing history.</p>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Local secrets - never commit
+.env
+
+# Backend build output
+server-cs/**/bin/
+server-cs/**/obj/
+data/
+
+# Packaged extension artifacts
+*.zip
+
+*.log

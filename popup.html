@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ADCTIR</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <div class="brand">
+        <svg class="brand__mark" id="shieldMark" viewBox="0 0 40 40" width="26" height="26" fill="none">
+          <path d="M20 3 L35 9 V19 C35 28 29 34.5 20 37 C11 34.5 5 28 5 19 V9 Z"
+                stroke="var(--accent)" stroke-width="2" fill="none"/>
+          <line class="scan-line" x1="6" y1="19" x2="34" y2="19" stroke="var(--accent)" stroke-width="1.4"/>
+        </svg>
+        <div class="brand__text">
+          <span class="brand__name">ADCTIR</span>
+          <span class="brand__sub">Browser Security Extension</span>
+        </div>
+      </div>
+      <span class="mode-badge" id="modeBadge">mock mode</span>
+    </header>
+
+    <main class="app__body">
+      <section class="page-info" id="pageInfo">
+        <span class="page-info__label">current page</span>
+        <span class="page-info__domain" id="pageDomain">—</span>
+      </section>
+
+      <section class="idle-state" id="idleState">
+        <p class="idle-copy">Check this page for phishing and suspicious-URL indicators.</p>
+        <button class="btn btn--primary" id="analyzeBtn">Analyze this page</button>
+      </section>
+
+      <section class="loading-state" id="loadingState" hidden>
+        <div class="pulse-dot"></div>
+        <p>Scanning indicators…</p>
+      </section>
+
+      <section class="result-state" id="resultState" hidden>
+        <div class="risk-badge" id="riskBadge">
+          <span class="risk-badge__level" id="riskLevel">—</span>
+          <span class="risk-badge__score" id="riskScore">0</span>
+        </div>
+
+        <div class="meter">
+          <div class="meter__fill" id="meterFill"></div>
+        </div>
+
+        <div class="reasons">
+          <span class="reasons__label">why</span>
+          <ul class="reasons__list" id="reasonsList"></ul>
+        </div>
+
+        <div class="explain">
+          <button class="btn btn--explain" id="explainBtn" type="button">Explain this result</button>
+          <div class="explain__panel" id="explainPanel" hidden>
+            <p class="explain__summary" id="explainSummary"></p>
+            <ul class="explain__points" id="explainPoints"></ul>
+            <div class="explain__actions-block" id="explainActionsBlock" hidden>
+              <span class="explain__label">what to do</span>
+              <ul class="explain__actions" id="explainActions"></ul>
+            </div>
+            <div class="explain__meta" id="explainMeta"></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--ghost" id="rescanBtn">Re-scan</button>
+          <button class="btn btn--report" id="reportBtn">Report to ADCTIR</button>
+        </div>
+
+        <div class="report-status" id="reportStatus" hidden></div>
+      </section>
+    </main>
+
+    <footer class="app__footer">
+      <span id="footerNote">Collects only permitted, non-sensitive signals. No passwords or form contents are read.</span>
+      <button class="footer-link" id="settingsBtn" type="button">Settings</button>
+    </footer>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="risk.js"></script>
+  <script src="api.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
